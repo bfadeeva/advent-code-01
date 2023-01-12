@@ -1,7 +1,5 @@
-const para = document.querySelector("p");
-
-/* Wszystkie elfy zadeklarowałam manualnie, czy jest szybszy sposób? W komentarzu na samym dole pozostała część inputu.
-Po prostu zajmuje to bardzo dużo czasu */
+/* Zadeklarowałam 10 elfów manualnie, nie mogłam znaleźć sposobu, jak pracować z taką ilością danych. 
+W komentarzu na samym dole pozostała część inputu. */
 
 const elf01 = [8063, 10386, 5705, 8397, 1084, 7661];
 const elf02 = [5800, 2273, 1315, 5801, 6352, 2649, 4140, 2115, 5298, 4441, 4428, 3773, 1076];
@@ -13,6 +11,37 @@ const elf07 = [3801, 6564, 5401, 3913, 3090, 1484, 6227, 1283, 2501, 4601, 5860,
 const elf08 = [19257, 31867];
 const elf09 = [4292, 4518, 1298, 13147, 7463];
 const elf10 = [6784, 1065, 4015, 3154, 6429, 5067, 6535, 5731, 1270, 5870, 4934, 2800];
+
+// funkcja obliczająca sumę elementów w jednym array
+function sumCalories(array) {
+let sum = 0;
+for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+const sum01 = sumCalories(elf01);
+const sum02 = sumCalories(elf02);
+const sum03 = sumCalories(elf03);
+const sum04 = sumCalories(elf04);
+const sum05 = sumCalories(elf05);
+const sum06 = sumCalories(elf06);
+const sum07 = sumCalories(elf07);
+const sum08 = sumCalories(elf08);
+const sum09 = sumCalories(elf09);
+const sum10 = sumCalories(elf10);
+
+const biggestSum = Math.max(sum01, sum02, sum03, sum04, sum05, sum06, sum07, sum08, sum09, sum10);
+
+const sect = document.querySelector('section');
+const para = document.createElement('p');
+para.textContent = `Highest number of calories: ${biggestSum}`
+sect.appendChild(para);
+
+
+/* pozostała część inputu
+
 const elf11 = [5227, 6294, 6733, 5177, 2773, 6553, 3219, 1446, 7005, 6036, 6872];
 const elf12 = [1721, 4408, 5577, 2799, 2257, 3149, 2389, 3713, 5588, 2324, 4595, 6018, 4926];
 const elf13 = [1233, 4799, 3380, 1975, 1924, 1578, 2338, 1546, 3708, 4020, 5872, 2519, 5334, 4416];
@@ -36,25 +65,6 @@ const elf30 = [1341, 1489, 7110, 2267, 6809, 4198, 1137, 2526, 2087, 3885, 4952,
 const elf31 = [6561, 1313, 6624];
 const elf32 = [11571, 3452, 15300, 1518, 14811];
 const elf33 = [3421, 5270, 1676, 6712, 6231, 6617, 6775, 5428, 3497, 5598, 3723];
-
-const elves = [elf02, elf01, elf03, elf04, elf05, elf06, elf07, elf08, elf09, elf10, elf11, elf12, elf13, elf14, elf15, elf16, elf17, elf18, elf19, elf20, elf21, elf22, elf23, elf24, elf25, elf26, elf27, elf28, elf29, elf30, elf31, elf32, elf33];
-
-// funkcja obliczająca sumę elementów w jednym array
-function sumCalories(array) {
-let sum = 0;
-for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-  }
-  return sum;
-}
-
-// szukam jak wywołać tę funkcję na wszystkich elfach i potem sprawdzić, który elf ma najwięcej kalorii
-for (let i = 0; i < elves.length; i++) {
-    sumCalories(elves[i]);
-}
-
-
-/* pozostała część inputu
 
 7879
 7984
